@@ -27,4 +27,4 @@ characters, string of characters, numbers with decimal points, and unsigned numb
 
           -----Function prototype stored in our header file-----
 
-
+int _printf(const char *format, ...); /*For our main file.*/
