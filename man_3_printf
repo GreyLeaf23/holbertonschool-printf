@@ -1,0 +1,42 @@
+.TH _PRINTF 3 _printf\-0.1
+.SH NAME
+_printf \- formatted output conversion
+.SH LIBRARY
+Holberton School C library (
+.SH SYNOPSIS
+.B \#include "printf_h"
+.B int _printf(const char \*restrict
+.IR format, ...)
+.B -printf
+.RB ( \%d
+.IR interger)
+.RB (\%c
+.IR character)
+.RB (\%s
+.IR string)
+.RB (\%f
+.IR float interger)
+.RB (\%u
+.IR unsigned interger)
+.P
+.SH DESCRIPTION
+.B The functions in the printf() family produce output according to a format as described below.
+.TP
+.B \%d
+prints intergers
+.TP
+.B \%c
+prints characters
+.TP
+.B \%s
+prints a string
+.TP
+.B \%f
+prints float intergers
+.TP
+.B \%u
+prints unsigned intergers
+.SH AUTHOR
+.B Hector J. Vazquez & Christian Rosario
+.SH COPYRIGHT
+.B GNU PRINTF Copyright, 2023
