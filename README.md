@@ -15,13 +15,13 @@ characters, string of characters, numbers with decimal points, and unsigned numb
 
 1) Being able to print a 'int' (%d).
 
-2) Being able to print a 'char' (%c).
+2) Being able to print a 'int' (%i).
 
-3) Being able to print a 'char []' (%s).
+3) Being able to print a 'char' (%c).
 
-4) Being able to print a 'float' (%f).
+4) Being able to print a 'char []' (%s).
 
-5) Being able to print a 'unsigned int' (%u).
+5) Being able to print a 'percent sign' (%).
 
 
 
