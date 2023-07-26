@@ -9,8 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0;
-	unsigned int j = 0;
+	unsigned int i, j;
 	int count = 0;
 	va_list args;
 
@@ -23,32 +22,24 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_start(args, format);
-
 	if (format[i] != "%")
 	{
 		write(1, &format[i], 1);
 		count++;
 	}
-
 	else
 	{
-		while (format != NULL && format[i])
+		for (i = 0; format != NULL && format[i]; i++)
 		{
 			j = 0;
-
-			while (j < 5)
+			for (j = 0; j < 5; j++)
 			{
 				if (format[i] == *f_types[j].id)
-				{
 					count += f_types[j].f(args);
-				}
-				j++;
 			}
-			i++;
 		}
 	}
 	va_end(args);
 	printf("\n");
-
 	return (count);
 }

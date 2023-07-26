@@ -24,6 +24,6 @@ int print_char(const char *format, va_list args);
 int print_int_i(const char *format, va_list args);
 int print_int_d(const char *format, va_list args);
 int print_percent(const char *format, va_list args);
-int print_str(const char *format , va_list args);
+int print_str(const char *format, va_list args);
 
 #endif
