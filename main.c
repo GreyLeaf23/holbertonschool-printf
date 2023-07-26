@@ -4,6 +4,7 @@
 /**
  * _printf - print anything
  * @format: constant
+ * Return: always 0
  */
 int _printf(const char *format, ...)
 {
