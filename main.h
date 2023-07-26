@@ -17,13 +17,13 @@ int _printf(const char *format, ...);
 typedef struct format_types
 {
 char *id;
-void (*f)(const char *format, va_list args);
+int (*f)(const char *format, va_list args);
 } f_t;
 
-void print_char(const char *format, va_list args);
-void print_int_i(const char *format, va_list args);
-void print_int_d(const char *format, va_list args);
-void print_f(const char *format, va_list args);
-void print_str(const char *format , va_list args);
+int print_char(const char *format, va_list args);
+int print_int_i(const char *format, va_list args);
+int print_int_d(const char *format, va_list args);
+int print_%(const char *format, va_list args);
+int print_str(const char *format , va_list args);
 
 #endif
