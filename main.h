@@ -17,7 +17,7 @@ int _printf(const char *format, ...);
 typedef struct format_types
 {
 char *id;
-int (*f)(const char *format, va_list args);
+int (*f)(va_list args);
 } f_t;
 
 /*Function Prototypes*/
