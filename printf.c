@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			for (j = 0; j < 5; j++)
 			{
 				if (format[i] == *f_types[j].id)
-					count += f_types[j].f(args);
+					count += f_types[j].f(*format[i],args);
 			}
 		}
 	}
