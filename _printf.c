@@ -8,20 +8,11 @@
  * Return: count
  */
 
-/**
- * example: int _printf("Hello %d %j", -1)
- * printf("hello %%", Christian)
- * "hello Christian"
- *
- * "hello %"
- */
-
 int _printf(const char *format, ...)
 {
-	unsigned int i, j;
+	int i, j;
 	int count = 0;
 	va_list args;
-	char c;
 
 	f_t f_types[] = {
 		{"c", print_char},
@@ -32,7 +23,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_start(args, format);
-	while (*format)
+	for (i = 0; i < format; i++)
 	{
 		if (format[i] != '%')
 		{
@@ -49,19 +40,11 @@ int _printf(const char *format, ...)
 				{
 					if (format[i] == *f_types[j].id)
 						count += f_types[j].f(args);
-					else
-					{
-						i--;
-						c = format[i];
-						write(1, &c, 1);
-						count++;
 					}
 				}
 			}
 		}
 	}
-	format++;
 	va_end(args);
-	printf("\n");
 	return (count);
 }
