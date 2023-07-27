@@ -21,10 +21,10 @@ int (*f)(const char *format, va_list args);
 } f_t;
 
 /*Function Prototypes*/
-int print_char(const char *format, va_list args);
-int print_int_i(const char *format, va_list args);
-int print_int_d(const char *format, va_list args);
-int print_percent(const char *format, va_list args);
-int print_str(const char *format, va_list args);
+int print_char(va_list args);
+int print_int_i(va_list args);
+int print_int_d(va_list args);
+int print_percent(va_list args);
+int print_str(va_list args);
 
 #endif
