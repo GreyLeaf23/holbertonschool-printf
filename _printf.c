@@ -3,8 +3,8 @@
 #include <unistd.h>
 #include "main.h"
 /**
- * _printf - print anything
- * @format: constant
+ * _printf - formatted output to stdout
+ * @format: constant character pointer
  * Return: count
  */
 
@@ -23,22 +23,28 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_start(args, format);
-	if (format[i] != '%')
+	while (*format)
 	{
-		write(1, &format[i], 1);
-		count++;
-	}
-	else
-	{
-		for (i = 0; format != NULL && format[i]; i++)
+		if (format[i] != '%')
 		{
-			j = 0;
-			for (j = 0; j < 5; j++)
+			write(1, &format[i], 1);
+			count++;
+		}
+		else
+		{
+			i++;
+			for (i = 0; format != NULL && format[i]; i++)
 			{
-				if (format[i] == *f_types[j].id)
-					count += f_types[j].f(args);
+				j = 0;
+				for (j = 0; j < 5; j++)
+				{
+					if (format[i] == *f_types[j].id)
+						count += f_types[j].f(args);
+				}
 			}
 		}
+	}
+	format++;
 	}
 	va_end(args);
 	printf("\n");
