@@ -8,6 +8,14 @@
  * Return: count
  */
 
+/**
+ * example: int _printf("Hello %d %j", -1)
+ * printf("hello %%", Christian)
+ * "hello Christian"
+ *
+ * "hello %"
+ */
+
 int _printf(const char *format, ...)
 {
 	unsigned int i, j;
@@ -40,6 +48,11 @@ int _printf(const char *format, ...)
 				{
 					if (format[i] == *f_types[j].id)
 						count += f_types[j].f(args);
+					else
+						i--;
+						char c = format[i];
+						write(1, &c, 1);
+						count++;
 				}
 			}
 		}
