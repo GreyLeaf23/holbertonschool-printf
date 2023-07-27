@@ -30,19 +30,20 @@ int print_int_d(va_list args)
 {
 int count = 0;
 
-
 char num_str[12];
-int len = 0, i;
+int len = 0, i, num = va_arg(args, int);
 
 	if (num == 0)
 	{
-		return putchar('0');
+		_putchar('0');
 	}
 
 	if (num < 0)
 	{
-		putchar('-');
+		_putchar('-');
+		count++;
 		num = -num;
+		count++;
 	}
 
 	while (num != 0)
@@ -56,8 +57,6 @@ int len = 0, i;
 		putchar(num_str[i]);
 	}
 
-
-count++;
 return (count);
 }
 
@@ -75,17 +74,19 @@ int count = 0;
 
 
 char num_str[12];
-int len = 0, i;
+int len = 0, i, num = va_arg(args, int);
 
 	if (num == 0)
 	{
-		return putchar('0');
+		_putchar('0');
 	}
 
 	if (num < 0)
 	{
 		putchar('-');
+		count++;
 		num = -num;
+		count++;
 	}
 
 	while (num != 0)
@@ -129,13 +130,12 @@ return (count);
  * Return: Count.
  */
 
-int print_str(const char *format, va_list args)
+int print_str(va_list args)
 {
 int count = 0;
 
+char *str = va_arg(args, char *);
 
- char *str = va_arg(list, char *);
-	int count = 0;
 	while (*str != '\0')
 	{
 		count += putchar(*str++);
