@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include "main.h"
 /**
  * _printf - print anything
@@ -14,15 +15,15 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	f_t f_types[] = {
-		{"c", print_char},
-		{"i", print_int_i},
-		{"d", print_int_d},
-		{"%", print_percent},
-		{"s", print_str},
+		{'c', &print_char},
+		{'i', &print_int_i},
+		{'d', &print_int_d},
+		{'%', &print_percent},
+		{'s', &print_str},
 		{NULL, NULL}
 	};
 	va_start(args, format);
-	if (format[i] != "%")
+	if (format[i] != '%')
 	{
 		write(1, &format[i], 1);
 		count++;
