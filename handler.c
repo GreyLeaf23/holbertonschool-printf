@@ -122,6 +122,18 @@ int print_str(va_list args)
 {
 	int count = 0;
 	char *str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		const char str = "NULL";
+		while (str != '\0')
+		{
+			write(1, str, 1);
+			count++;
+			str++;
+		}
+    }
+	else
+	{
 
 	while (*str != '\0')
 	{
@@ -129,6 +141,6 @@ int print_str(va_list args)
 		count++;
 		str++;
 	}
-
+	}
 	return (count);
 }
