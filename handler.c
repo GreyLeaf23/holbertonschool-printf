@@ -124,23 +124,18 @@ int print_str(va_list args)
 	char *str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		const char str = "NULL";
-		while (str != '\0')
+		write(1, "(null)", 6);
+		count++;
+		return (6);
+	}
+	else
+	{
+		while (*str != '\0')
 		{
 			write(1, str, 1);
 			count++;
 			str++;
 		}
-    }
-	else
-	{
-
-	while (*str != '\0')
-	{
-		write(1, str, 1);
-		count++;
-		str++;
-	}
 	}
 	return (count);
 }
