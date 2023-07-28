@@ -14,14 +14,8 @@ int _printf(const char *format, ...)
 	int count = 0;
 	va_list args;
 
-	f_t f_types[] = {
-		{"c", print_char},
-		{"i", print_int_i},
-		{"d", print_int_d},
-		{"%", print_percent},
-		{"s", print_str},
-		{NULL, NULL}
-	};
+	f_t f_types[] = {{"c", print_char}, {"i", print_int_i}, {"d", print_int_d},
+					{"%", print_percent}, {"s", print_str}, {NULL, NULL}};
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
@@ -35,7 +29,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			for (j = 0; f_types[j].id != NULL; j++)
+			for (j = 0; j < 5; j++)
 			{
 				if (*format == *f_types[j].id)
 				{
@@ -43,9 +37,14 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
+			if (j == 5)
+			{
+				format--;
+				count += print_percent(args);
+			}
 		}
-	format++;
+		format++;
 	}
-va_end(args);
-return (count);
+	va_end(args);
+	return (count);
 }
