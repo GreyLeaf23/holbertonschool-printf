@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 	va_start(args, format);
-	if (*fomat == NULL)
+	if (format == NULL)
 		return (-1);
 	while (*format)
 	{
