@@ -26,5 +26,6 @@ int print_int_i(va_list args);
 int print_int_d(va_list args);
 int print_percent(va_list args);
 int print_str(va_list args);
+int print_null(va_list args);
 
 #endif
