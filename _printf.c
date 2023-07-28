@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	f_t f_types[] = {{"c", print_char}, {"i", print_int_i}, {"d", print_int_d},
-					{"%", print_percent}, {"s", print_str}, {NULL, NULL}};
+					{"%", print_percent}, {"s", print_str}, {NULL, print_null}};
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
@@ -29,12 +29,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			if (*format == '\0')
-			{
-			write(1, "%", 1);
-			count++;
-			break;
-			}
 			for (j = 0; j < 5; j++)
 			{
 				if (*format == *f_types[j].id)
