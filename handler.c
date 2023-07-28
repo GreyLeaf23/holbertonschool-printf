@@ -79,29 +79,24 @@ int len = 0, i, num = va_arg(args, int);
 
 	if (num == 0)
 	{
-		_putchar('0');
-	}
-
-	if (num < 0)
-	{
-		putchar('-');
-		count++;
-		num = -num;
+		write(1, "0", 1);
 		count++;
 	}
-
-	while (num != 0)
+	else
 	{
+		while (num != 0)
+		{
 		num_str[len++] = num % 10 + '0';
 		num /= 10;
+		}
+
+		for (i = len - 1; i >= 0; i--)
+		{
+		 write(1, &num_str[i], 1);
+		 count++;
+		}
 	}
 
-	for (i = len - 1; i >= 0; i--)
-	{
-		 _putchar(num_str[i]);
-	}
-
-count++;
 return (count);
 }
 
@@ -117,8 +112,8 @@ int print_percent(va_list args)
 {
 int count = 0;
 
-char c = va_arg(args, int);
-write(1, &c, 1);
+(void)args;
+write (1, "%", 1);
 count++;
 return (count);
 }
@@ -139,9 +134,10 @@ char *str = va_arg(args, char *);
 
 	while (*str != '\0')
 	{
-		count += putchar(*str++);
+		write (1, str, 1);
+		count++;
+		str++;
 	}
 
-count++;
 return (count);
 }
