@@ -29,6 +29,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
+			if (*format == '\0')
+			{
+			write(1, "%", 1);
+			count++;
+			break;
+			}
 			for (j = 0; j < 5; j++)
 			{
 				if (*format == *f_types[j].id)
