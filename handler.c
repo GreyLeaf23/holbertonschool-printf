@@ -122,6 +122,7 @@ int print_str(va_list args)
 {
 	int count = 0;
 	char *str = va_arg(args, char *);
+
 	if (str == NULL)
 	{
 		write(1, "(null)", 6);
