@@ -35,15 +35,15 @@ int len = 0, i, num = va_arg(args, int);
 
 	if (num == 0)
 	{
-		_putchar('0');
+		write (1, "0", 1);
+		count++;
 	}
 
 	if (num < 0)
 	{
-		_putchar('-');
+		write(1, "-", 1);
 		count++;
 		num = -num;
-		count++;
 	}
 
 	while (num != 0)
@@ -54,7 +54,8 @@ int len = 0, i, num = va_arg(args, int);
 
 	for (i = len - 1; i >= 0; i--)
 	{
-		putchar(num_str[i]);
+		write (1, &num_str[i], 1);
+		count++;
 	}
 
 return (count);
@@ -97,7 +98,7 @@ int len = 0, i, num = va_arg(args, int);
 
 	for (i = len - 1; i >= 0; i--)
 	{
-		 putchar(num_str[i]);
+		 _putchar(num_str[i]);
 	}
 
 count++;

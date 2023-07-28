@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j;
+	int j;
 	int count = 0;
 	va_list args;
 
@@ -25,26 +25,25 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		if (format[i] != '%')
+		if (*format != '%')
 		{
-			write(1, &format[i], 1);
+			write(1, format, 1);
 			count++;
 		}
 		else
 		{
-			i++;
-			for (i = 0; format != NULL && format[i]; i++)
+			format++;
+			for (j = 0; f_types[j].id != NULL; j++)
 			{
-				j = 0;
-				for (j = 0; j < 5; j++)
+				if (*format == *f_types[j].id)
 				{
-					if (format[i] == *f_types[j].id)
-						count += f_types[j].f(args);
+					count += f_types[j].f(args);
+					break;
 				}
 			}
 		}
 	format++;
 	}
-	va_end(args);
-	return (count);
+va_end(args);
+return (count);
 }
