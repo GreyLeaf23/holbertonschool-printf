@@ -12,6 +12,6 @@ int print_null(va_list args)
 
 	(void)args;
 	write(1, "%", 1);
-	count ++;
+	count++;
 	return (count);
 }

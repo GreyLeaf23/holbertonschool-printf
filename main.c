@@ -1,4 +1,5 @@
 #include <limits.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
 
@@ -40,5 +41,9 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
+	len = _printf("len:%\n");
+	len2 = printf("len2:%\n");
+	_printf("len:%d\n", len);
+	printf("len2:%d\n", len2);
 	return (0);
 }
