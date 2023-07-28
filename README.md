@@ -78,3 +78,13 @@ unsigned integers, single characters, string of characters, and the percent sign
     incremented.
 
 10) The function ends by returning the final value of the 'count' variable.
+
+
+
+                 -----Example of our _printf function-----
+
+             '_printf' - this is our printf fucntion signature.
+
+  -It takes a format string as its first argument has the value to be printed.
+
+
